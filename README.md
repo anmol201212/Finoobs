@@ -1,0 +1,2 @@
+# Finoobs
+Finance for Noobs

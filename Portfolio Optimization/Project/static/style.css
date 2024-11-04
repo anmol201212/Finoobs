@@ -1,0 +1,98 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+h1 {
+    color: #2b7a78;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+label {
+    font-size: 1em;
+    color: #4a4a4a;
+    margin-bottom: 5px;
+}
+
+/* Input and Dropdown Styling */
+input[type="number"], select {
+    width: 220px;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+
+input[type="number"]:focus, select:focus {
+    border-color: #2b7a78;
+    outline: none;
+}
+
+/* Button Styling */
+button {
+    background-color: #2b7a78;
+    color: white;
+    font-size: 1em;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #3aafa9;
+}
+
+#submit-btn {
+    background-color: #e63946;
+}
+
+#submit-btn:hover {
+    background-color: #f06543;
+}
+
+/* Container for Dropdowns */
+#dropdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#dropdown-container select {
+    width: 200px;
+}
+
+/* Section Styling */
+#amount-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#amount-section label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#dropdown-count {
+    width: 220px;
+    padding: 10px;
+}

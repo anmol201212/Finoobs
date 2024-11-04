@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Suggestion Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Stock Suggestion Tool</h1>
+
+    <label for="dropdown-count">Select the number of stocks to analyze:</label>
+    <input type="number" id="dropdown-count" min="1" max="10" placeholder="Enter number of stocks">
+    <button onclick="generateDropdowns()">Generate Stock Selectors</button>
+
+    <div id="dropdown-container"></div>
+
+    <div id="amount-section" style="display: none;">
+        <label for="amount">Investment Amount ($):</label>
+        <input type="number" id="amount" placeholder="Enter amount in USD">
+    </div>
+
+    <button id="submit-btn" style="display: none;" onclick="submitData()">Submit Selection</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

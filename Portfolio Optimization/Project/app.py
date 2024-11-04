@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request
-from portfolio_optimizer import optimize_portfolio  # Import the optimizer function
+from portfolio_optimizer import optimize_portfolio 
 import pandas as pd
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -29,19 +30,30 @@ def submit():
 
     # Log the incoming data
     print(f"Received amount: {investment_amount}, selected items: {selected_items}")
-    
-    try:
-        recommendations, expected_return, volatility, total_invested = optimize_portfolio(investment_amount, selected_items)
-        print("hehehe",expected_return)
-        return jsonify({
+    recommendations, expected_return, volatility, total_invested = optimize_portfolio(int(investment_amount), selected_items)
+    print("recommendations",recommendations)
+    print("expected_return",expected_return)
+    print("volatility",volatility)
+    print("total_invested",total_invested)
+    return jsonify({
             "recommendations": recommendations,
             "expected_return": expected_return,
             "volatility": volatility,
             "total_invested": total_invested
-        })
+    })
+    # try:
+    #     recommendations, expected_return, volatility, total_invested = optimize_portfolio(investment_amount, selected_items)
+    #     print("hehehe",recommendations)
+    #     return jsonify({
+    #         "recommendations": recommendations,
+    #         "expected_return": expected_return,
+    #         "volatility": volatility,
+    #         "total_invested": total_invested
+    #     })
     
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    # except Exception as e:
+    #     return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # serve(app, host="0.0.0.0", port=5000, threads=1, connection_limit=100, asyncore_use_poll=True, channel_timeout=60)

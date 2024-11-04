@@ -52,7 +52,7 @@ def merge_df_by_column_name(col_name, sdate, edate, *tickers):
     return mult_df
 
 def optimize_portfolio(investment_amount, port_list):
-    print(port_list)
+    
     stock_mapping = load_stock_mapping('E:\\Projects\\Finoobs\\Portfolio Optimization\\Project\\companies.csv')
     
     if not port_list:
@@ -60,7 +60,7 @@ def optimize_portfolio(investment_amount, port_list):
 
     # Convert stock names to tickers
     port_tickers = [stock_mapping[name] for name in port_list if name in stock_mapping]
-
+    
     if not port_tickers:
         raise ValueError("No valid tickers found for the provided stock names.")
 
@@ -74,6 +74,8 @@ def optimize_portfolio(investment_amount, port_list):
     returns = np.log(mult_df / mult_df.shift(1))
 
     p_ret, p_vol, p_SR, p_wt = [], [], [], []
+
+    print("hehehe",port_tickers)
     
     for _ in range(10000):
         weights = np.random.random(len(port_tickers))

@@ -23,8 +23,9 @@ def download_stock_data(ticker, start_date, end_date):
 
 def get_df_from_csv(ticker):
     """Get DataFrame from CSV, download if not found."""
+    # ticker1 = ticker[:-3]
     try:
-        df = pd.read_csv(PATH + ticker + '.csv', index_col='Date', parse_dates=True)
+        df = pd.read_csv(PATH + ticker[:-3] + '.csv', index_col='Date', parse_dates=True)
     except FileNotFoundError:
         print(f"CSV for {ticker} not found. Downloading data...")
         end_date = dt.datetime.now().strftime('%Y-%m-%d')
